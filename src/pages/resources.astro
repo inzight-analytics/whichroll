@@ -1,0 +1,189 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+
+const videos = [
+  {
+    title: 'FFS Choose',
+    description: '"For Future\'s Sake Choose" Māori roll campaign video from Stan Walker.',
+    link: 'https://vimeo.com/496965537',
+    linkLabel: 'Stan Walker: FFS Choose',
+  },
+  {
+    title: 'Māori Roll or General Roll?',
+    description: '"Shifting Sands" Māori roll campaign video by Saatchi & Saatchi.',
+    link: 'https://youtu.be/xI-D5hNO6bM',
+    linkLabel: 'Saatchi & Saatchi: Māori Roll or General Roll?',
+  },
+  {
+    title: 'Kaupapa on the Couch',
+    description: "Leonie Hayden presents 'The Māori Seats: what are they and who cares about them?'.",
+    link: 'https://www.youtube.com/watch?v=spcluAdAFV4',
+    linkLabel: 'Leonie Hayden: Kaupapa on the Couch',
+  },
+];
+
+const articles = [
+  {
+    title: 'Attention those with Māori whakapapa: you might have missed an important law change',
+    description:
+      'News article by Hannah Overbye & Rebecca Hini talking about the law changes around the Māori electoral option in 2023.',
+    link: 'https://thespinoff.co.nz/atea/30-06-2023/attention-those-with-maori-whakapapa-you-might-have-missed-an-important-law-change',
+    linkLabel: 'The Spinoff',
+  },
+  {
+    title: 'Māori roll or general roll – how did you choose?',
+    description:
+      'News article from Which Roll? – Ko Tēhea Rārangi Pōti? team members Ema Tuakoi and Tommy de Silva sharing their experiences and understandings of the Māori electoral roll.',
+    link: 'https://thespinoff.co.nz/politics/25-07-2022/maori-roll-or-general-roll-how-did-you-choose',
+    linkLabel: 'The Spinoff',
+  },
+];
+
+const official = [
+  {
+    title: 'Register for the Māori electoral roll',
+    description:
+      'New Zealand Government webpage providing an overview of who is eligible for the Māori roll, how to choose rolls, and how voting on the roll works.',
+    link: 'https://www.govt.nz/browse/engaging-with-government/enrol-and-vote-in-an-election/register-for-the-maori-electoral-roll/',
+    linkLabel: 'New Zealand Government',
+  },
+  {
+    title: 'General roll or Māori roll?',
+    description:
+      'Electoral Commission webpage explaining what the Māori roll is, and what exactly being on the Māori roll means for voters.',
+    link: 'https://vote.nz/enrolling/get-ready-to-enrol/general-roll-or-maori-roll/',
+    linkLabel: 'Electoral Commission',
+  },
+  {
+    title: 'What is the Māori Electoral Option?',
+    description:
+      'Electoral Commission webpage which provides a general overview of the Māori electoral roll and how to swap between rolls.',
+    link: 'https://elections.nz/democracy-in-nz/what-is-an-electoral-roll/what-is-the-maori-electoral-option/',
+    linkLabel: 'Electoral Commission',
+  },
+  {
+    title: 'Ngā māngai – Māori representation',
+    description:
+      'Te Ara webpage talking about Māori representation in Parliament, the effect of the Māori seats, and some additional history.',
+    link: 'https://teara.govt.nz/en/nga-mangai-maori-representation',
+    linkLabel: 'Te Ara (NZ Government)',
+  },
+  {
+    title: 'What difference will it make?',
+    description:
+      'Citizens Advice Bureau webpage about what difference voting on the Māori roll might make for voters, along with instructions for enrolling.',
+    link: 'https://www.cab.org.nz/article/KB00001066',
+    linkLabel: 'Citizens Advice Bureau',
+  },
+  {
+    title: 'History of Māori and the Vote',
+    description:
+      'New Zealand History webpage detailing the history of Māori in the New Zealand electoral system and the Māori seats.',
+    link: 'https://nzhistory.govt.nz/politics/maori-and-the-vote/twentieth-century',
+    linkLabel: 'New Zealand History',
+  },
+];
+
+const media = [
+  {
+    title: 'RNZ: Make switch to Māori roll easier, say Taranaki politicians',
+    description:
+      'News piece discussing why Taranaki Māori politicians want to make it easier for Māori voters to join the Māori electoral roll.',
+    link: 'https://www.rnz.co.nz/news/te-manu-korihi/448621/make-switch-to-maori-roll-easier-say-taranaki-politicians',
+    linkLabel: 'Radio New Zealand',
+  },
+  {
+    title: '1 News: Explained - What going on the Māori roll means for you',
+    description:
+      'Media story by One News discussing what being enrolled on the Māori roll means for voters, why the Māori seats exist, and some general information.',
+    link: 'https://www.1news.co.nz/2020/09/02/explained-what-going-on-the-maori-roll-means/',
+    linkLabel: 'One News',
+  },
+  {
+    title: "Māori TV: Māori Electoral Option time, whānau! It's up to you!",
+    description:
+      'Māori Television news piece on Facebook explaining why, how, and when people can sign up for the Māori electoral option.',
+    link: 'https://www.facebook.com/watch/?v=10156703827400649',
+    linkLabel: 'Māori TV (Facebook)',
+  },
+  {
+    title: 'RNZ: Call to change how Māori can be enrolled to vote',
+    description:
+      'There have been calls to change the timing of the Māori electoral option, and the Ministry of Justice wants to hear what people think.',
+    link: 'https://www.rnz.co.nz/news/te-manu-korihi/448546/call-to-change-how-maori-can-be-enrolled-to-vote',
+    linkLabel: 'Radio New Zealand',
+  },
+];
+---
+
+<BaseLayout
+  title="Resources"
+  description="Videos, articles, and official information about the Māori and General electoral rolls."
+>
+  <section class="section">
+    <div class="container">
+      <h1 class="text-center">Resources & Info</h1>
+      <hr class="divider" />
+
+      <div class="resource-section">
+        <h2>Videos</h2>
+        {
+          videos.map(({ title, description, link, linkLabel }) => (
+            <article class="resource-item">
+              <h3>{title}</h3>
+              <p>{description}</p>
+              <a href={link} target="_blank" rel="noopener">
+                {linkLabel}
+              </a>
+            </article>
+          ))
+        }
+      </div>
+
+      <div class="resource-section">
+        <h2>Articles</h2>
+        {
+          articles.map(({ title, description, link, linkLabel }) => (
+            <article class="resource-item">
+              <h3>{title}</h3>
+              <p>{description}</p>
+              <a href={link} target="_blank" rel="noopener">
+                {linkLabel}
+              </a>
+            </article>
+          ))
+        }
+      </div>
+
+      <div class="resource-section">
+        <h2>Official information</h2>
+        {
+          official.map(({ title, description, link, linkLabel }) => (
+            <article class="resource-item">
+              <h3>{title}</h3>
+              <p>{description}</p>
+              <a href={link} target="_blank" rel="noopener">
+                {linkLabel}
+              </a>
+            </article>
+          ))
+        }
+      </div>
+
+      <div class="resource-section">
+        <h2>In the Media</h2>
+        {
+          media.map(({ title, description, link, linkLabel }) => (
+            <article class="resource-item">
+              <h3>{title}</h3>
+              <p>{description}</p>
+              <a href={link} target="_blank" rel="noopener">
+                {linkLabel}
+              </a>
+            </article>
+          ))
+        }
+      </div>
+    </div>
+  </section>
+</BaseLayout>

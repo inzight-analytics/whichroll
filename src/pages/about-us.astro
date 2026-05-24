@@ -1,0 +1,124 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import FAQ from '../components/FAQ.astro';
+
+const faqItems = [
+  {
+    question: 'What kind of questions did the researchers ask?',
+    answer:
+      '<p>There were three separate sections. The first asked some questions about which electoral roll people chose and why, along with a few questions about themselves. The second asked some more in-depth questions about people\'s political views, including which parties they liked or disliked, political participation, their identity as Māori, and their thoughts on Māori politics. The third section was a short quiz to test people\'s knowledge of the Māori roll.</p>',
+  },
+  {
+    question: 'Why did you ask these questions?',
+    answer:
+      '<p>The purpose of this survey was to explore why people choose to enrol to vote on the Māori roll or General electoral roll.</p><p>Lara, the lead researcher on the project, is of Māori/Ngāpuhi descent and struggled herself with the decision as to which roll to go on. She talked to others who also didn\'t know much about this choice or which roll was best for them.</p><p>At the time, there was a lot of talk in the media and commentary around why people might choose to enrol on the Māori or General electoral roll – but not a lot of work that actually asked people why they make this choice. It was also unclear how much people think about the electoral rolls, or whether or not they are even aware that there is an option to choose.</p>',
+  },
+  {
+    question: 'Who was able to participate?',
+    answer:
+      '<p>Because the survey was focused on Māori, it was limited to those with Māori whakapapa or descent (i.e., meet the Electoral Act definition of being Māori or a descendant of Māori). Those who didn\'t meet these requirements were unfortunately not eligible to participate.</p>',
+  },
+  {
+    question: 'Did you keep any personally identifiable information?',
+    answer:
+      '<p>No. We didn\'t record participants\' names or any identifying information.</p><p>The data will be stored into the future, in an anonymous electronic form, with access strictly controlled by the researchers. The researchers are involved with <a href="https://www.temanararaunga.maori.nz/" target="_blank" rel="noopener">Te Mana Raraunga</a> (the Māori Data Sovereignty network) and follow their principles of Māori data sovereignty.</p>',
+  },
+  {
+    question: 'What are the answers being used for?',
+    answer:
+      '<p>The survey results are published on our <a href="/results/">Survey Results</a> page and in academic publications. See also our <a href="/publications/">Publications</a> page.</p>',
+  },
+  {
+    question: 'Could people take the survey in te reo Māori?',
+    answer:
+      '<p>Yes! The entire survey was able to be completed in either te reo Māori or English, and participants could switch between the two at any time.</p>',
+  },
+  {
+    question: 'Where can I see the results?',
+    answer:
+      '<p>Visit our <a href="/results/">Survey Results</a> page for the top reasons Māori chose each roll and knowledge quiz results.</p>',
+  },
+  {
+    question: 'Who funded this survey?',
+    answer:
+      '<p>This survey was funded through the Royal Society Marsden awards (Fast Start: 20-UOA-255). The Royal Society is an independent, not-for-profit membership organisation which provides funding and awards to researchers.</p><p>The researcher did not profit financially from this grant award or receive money personally. Instead, this funding allowed the University to provide time so that the researchers could focus on their research work, rather than teach university courses. It also provided funding for research costs – in this case, the website costs, te reo translation, and paying the various student research assistants.</p>',
+  },
+  {
+    question: 'I still have questions. Who can I talk to?',
+    answer:
+      '<p>To contact our team for questions, feedback, and other comments, please email <a href="mailto:whichroll@auckland.ac.nz">whichroll@auckland.ac.nz</a>.</p>',
+  },
+];
+---
+
+<BaseLayout
+  title="About Us"
+  description="About the Which Roll? survey – why we ran it, who was involved, and frequently asked questions."
+>
+  <section class="section">
+    <div class="container">
+      <div class="page-header">
+        <img class="logo" src="/images/Which-Roll-02.png" alt="Which Roll?" width="600" height="256" />
+      </div>
+
+      <div class="hero__grid">
+        <div>
+          <h2>
+            <strong>Which Roll? – Ko Tēhea Rārangi Pōti?</strong> was a short anonymous survey held in 2022
+            asking people why they choose the Māori or General electoral roll.
+          </h2>
+          <p>
+            At the time of the survey, there was a lot of talk in the media and commentary around why Māori
+            might choose to enrol on the Māori electoral roll or the General electoral roll – but not a lot
+            of work that actually asked people why they make this choice. It was also unclear how much Māori
+            thought about the electoral rolls, or whether or not they were aware that there is even an option
+            to choose.
+          </p>
+          <p>
+            Which Roll? – Ko Tēhea Rārangi Pōti? was designed to help us find some answers, understand
+            experiences, and give voice to a diverse range of Māori perspectives. This short anonymous
+            survey asked people about themselves, their experiences, and their understandings of the Māori
+            roll. We used the answers to this survey to write reports for the government, academics, and the
+            general public.
+          </p>
+        </div>
+        <div>
+          <img src="/images/Characters-02.png" alt="" width="513" height="1024" loading="lazy" />
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section section--alt text-center">
+    <div class="container">
+      <h2>View the survey questions</h2>
+      <p>Click below to view the full list of questions we asked our participants</p>
+      <a href="https://form.jotform.com/242387834185870" class="btn" target="_blank" rel="noopener">
+        View survey questions
+      </a>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container">
+      <h2 class="text-center">Who ran this survey?</h2>
+      <hr class="divider" />
+      <p class="text-center">
+        Which Roll? – Ko Tēhea Rārangi Pōti was run by a team of researchers studying why people choose to
+        enrol to vote on the Māori roll or General roll, led by Dr. Lara Greaves.
+      </p>
+      <div class="team-list" style="max-width: 600px; margin: 2rem auto 0">
+        <p><strong>Dr. Lara Greaves</strong> – Lead Researcher</p>
+        <p><strong>Ema Tuakoi</strong> – Research Assistant</p>
+        <p><strong>Tommy De Silva</strong> – Research Assistant</p>
+        <p><strong>Kauri Tangohau</strong> – Research Assistant</p>
+        <p><strong>Marewa Taiepa Shields</strong> – Research Assistant</p>
+        <p><strong>Cinnamon Latimer</strong> – Research Assistant</p>
+        <p><strong>Ben Barton</strong> – Research Assistant</p>
+        <p><strong>Matt Waymouth</strong> – Research Assistant</p>
+      </div>
+    </div>
+  </section>
+
+  <FAQ items={faqItems} />
+</BaseLayout>

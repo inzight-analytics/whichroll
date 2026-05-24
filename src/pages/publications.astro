@@ -1,0 +1,85 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+
+const publications = [
+  {
+    title:
+      'Indigenous Research Methods and Online Surveys: Designing an Online Survey to Give Voice to Māori Electoral Choices',
+    citation:
+      'Greaves, L. M. & Waymouth, M. (2024). Sage Research Methods Cases: Diversifying and Decolonizing Research.',
+    link: 'https://methods.sagepub.com/case/indigenous-research-methods-and-online-surveys-designing-an-online',
+    linkLabel: 'Sage Research Methods',
+  },
+  {
+    title:
+      '[UNDER REVIEW] Indigenous representational choices: Results from a large qualitative survey on Māori Electoral Roll choice.',
+    citation: 'Greaves, L. M., Hini, R., Overbye, H., & Brink, K.',
+  },
+  {
+    title:
+      '[UNDER REVIEW] "Where do I enrol for my special treatment?" The effects of public pushback on an online Māori Electoral roll survey project',
+    citation:
+      'Brink, K., Barton, B., de Silva, T., Tuakoi, E., Oldfield, L. D., Waymouth, M., & Greaves, L. M.',
+  },
+];
+
+const grantPublications = [
+  {
+    title: "Resisting the Red Wave? The Māori Party's return to parliament.",
+    citation:
+      "In J. Curtin, L. Greaves, & J. Vowles, A Team of Five Million? The 2020 'Covid-19' New Zealand General Election. ANU Press.",
+    link: 'https://press.anu.edu.au/publications/team-five-million#tabanchor',
+    linkLabel: 'ANU Press',
+  },
+  {
+    title:
+      'The predictors of Māori electoral roll choice and knowledge: Rangatahi Māori voter enrolment in a representative New Zealand youth survey.',
+    citation:
+      'Greaves, L. M., Hayward, J., Barnett, D., Crengle, S., & Clark, T. C. (2023). Kōtuitui: New Zealand Journal of Social Sciences Online, 18(3), 290-309.',
+  },
+  {
+    title: 'Māori and the 2020 General Election',
+    citation:
+      'In S Levine (Ed.), Politics in a Pandemic: Jacinda Ardern and the 2020 Election. Wellington, NZ: Victoria University Press.',
+  },
+];
+---
+
+<BaseLayout title="Publications" description="Research publications from the Which Roll? project.">
+  <section class="section">
+    <div class="container">
+      <h1 class="text-center">Publications</h1>
+      <hr class="divider" />
+
+      {
+        publications.map(({ title, citation, link, linkLabel }) => (
+          <article class="publication-item">
+            <h3>{title}</h3>
+            <p>{citation}</p>
+            {link && (
+              <a href={link} target="_blank" rel="noopener">
+                {linkLabel}
+              </a>
+            )}
+          </article>
+        ))
+      }
+
+      <h2 style="margin-top: 3rem">Publications supported by this grant</h2>
+
+      {
+        grantPublications.map(({ title, citation, link, linkLabel }) => (
+          <article class="publication-item">
+            <h3>{title}</h3>
+            <p>{citation}</p>
+            {link && (
+              <a href={link} target="_blank" rel="noopener">
+                {linkLabel}
+              </a>
+            )}
+          </article>
+        ))
+      }
+    </div>
+  </section>
+</BaseLayout>

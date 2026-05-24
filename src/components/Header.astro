@@ -1,0 +1,36 @@
+---
+const navItems = [
+  { href: '/about-us/', label: 'About Us' },
+  { href: '/resources/', label: 'Resources' },
+  { href: '/publications/', label: 'Publications' },
+  { href: '/results/', label: 'Survey Results' },
+];
+
+const currentPath = Astro.url.pathname;
+---
+
+<header class="site-header">
+  <div class="container site-header__inner">
+    <a href="/" class="site-header__logo" aria-label="Which Roll? home">
+      <img src="/images/Which-Roll-02.png" alt="Which Roll? – Ko Tēhea Rārangi Pōti?" width="200" height="85" />
+    </a>
+    <button class="nav-toggle" aria-label="Toggle menu" aria-expanded="false" aria-controls="site-nav">
+      <span></span>
+      <span></span>
+      <span></span>
+    </button>
+    <nav class="site-nav" id="site-nav" aria-label="Main navigation">
+      <ul>
+        {
+          navItems.map(({ href, label }) => (
+            <li>
+              <a href={href} aria-current={currentPath === href ? 'page' : undefined}>
+                {label}
+              </a>
+            </li>
+          ))
+        }
+      </ul>
+    </nav>
+  </div>
+</header>

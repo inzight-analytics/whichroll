@@ -1,0 +1,29 @@
+---
+interface FAQItem {
+  question: string;
+  answer: string;
+}
+
+interface Props {
+  items: FAQItem[];
+}
+
+const { items } = Astro.props;
+---
+
+<section class="section section--gradient" id="faq">
+  <div class="container">
+    <h2 class="text-center">Frequently Asked Questions</h2>
+    <hr class="divider" />
+    <div class="faq-list">
+      {
+        items.map(({ question, answer }) => (
+          <details class="faq-item">
+            <summary>{question}</summary>
+            <div class="faq-item__content" set:html={answer} />
+          </details>
+        ))
+      }
+    </div>
+  </div>
+</section>

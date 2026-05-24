@@ -1,0 +1,66 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+---
+
+<BaseLayout title="Home">
+  <section class="hero section">
+    <div class="container">
+      <div class="hero__grid">
+        <div>
+          <h1>
+            <strong>Which Roll? – Ko Tēhea Rārangi Pōti?</strong>
+          </h1>
+          <p class="hero__intro">
+            was a short anonymous survey held in 2022 asking people why they choose the Māori or General
+            electoral roll.
+          </p>
+          <p>
+            <a href="/about-us/" class="btn">About Us</a>
+            <a href="/results/" class="btn btn--outline" style="margin-left: 0.5rem">Survey Results</a>
+          </p>
+        </div>
+        <div class="hero__characters">
+          <img src="/images/Characters-03.png" alt="" width="400" height="566" loading="eager" />
+          <img src="/images/Characters-04.png" alt="" width="400" height="566" loading="eager" />
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section section--alt">
+    <div class="container text-center">
+      <h2>Explore the project</h2>
+      <hr class="divider" />
+      <div class="card-grid card-grid--2">
+        <div class="card">
+          <h3>About the survey</h3>
+          <p>
+            Learn why we ran the survey, who was involved, and read answers to frequently asked
+            questions.
+          </p>
+          <a href="/about-us/" class="card__link">About Us →</a>
+        </div>
+        <div class="card">
+          <h3>Survey results</h3>
+          <p>
+            See the top reasons Māori chose the Māori roll or General roll, and results from our
+            knowledge quiz.
+          </p>
+          <a href="/results/" class="card__link">View Results →</a>
+        </div>
+        <div class="card">
+          <h3>Resources</h3>
+          <p>
+            Videos, articles, and official information about the Māori and General electoral rolls.
+          </p>
+          <a href="/resources/" class="card__link">Browse Resources →</a>
+        </div>
+        <div class="card">
+          <h3>Publications</h3>
+          <p>Research papers and publications from the Which Roll? project team.</p>
+          <a href="/publications/" class="card__link">View Publications →</a>
+        </div>
+      </div>
+    </div>
+  </section>
+</BaseLayout>
