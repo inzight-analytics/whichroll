@@ -1,8 +1,42 @@
-<footer class="site-footer">
-  <div class="container">
-    <p>
-      Which Roll? – Ko Tēhea Rārangi Pōti? ·
-      <a href="mailto:whichroll@auckland.ac.nz">whichroll@auckland.ac.nz</a>
-    </p>
+---
+import { navItems } from '../config/nav';
+
+const currentPath = Astro.url.pathname;
+---
+
+<footer class="bg-gradient-to-r from-[#f34315] to-[#f28729]">
+  <div class="mx-auto flex min-h-[70px] max-w-[1600px] flex-col items-center justify-between gap-4 px-4 py-4 sm:flex-row sm:px-6 lg:px-8">
+    <nav aria-label="Footer navigation">
+      <ul class="flex flex-wrap items-center gap-x-6 gap-y-2">
+        {
+          navItems.map(({ href, label }) => (
+            <li>
+              <a
+                href={href}
+                class:list={[
+                  'text-sm font-semibold no-underline sm:text-base',
+                  currentPath === href
+                    ? 'text-roll-text'
+                    : 'text-white hover:text-roll-text',
+                ]}
+                aria-current={currentPath === href ? 'page' : undefined}
+              >
+                {label}
+              </a>
+            </li>
+          ))
+        }
+      </ul>
+    </nav>
+
+    <a href="/" class="shrink-0" aria-label="Which Roll? home">
+      <img
+        src="/images/single-lol-qvbhwhz9u5pz0yacb7z4q2u0zottvqzplxa0uza4xg.png"
+        alt=""
+        class="h-10 w-10"
+        width="40"
+        height="40"
+      />
+    </a>
   </div>
 </footer>

@@ -7,12 +7,14 @@ interface Props {
   title: string;
   description?: string;
   ogImage?: string;
+  homeLayout?: boolean;
 }
 
 const {
   title,
   description = 'A short anonymous survey asking people why they choose the Māori or General electoral roll.',
   ogImage = '/images/og-image-cover.jpg',
+  homeLayout = false,
 } = Astro.props;
 
 const fullTitle = title === 'Home' ? 'Which Roll? – Ko Tēhea Rārangi Pōti?' : `${title} – Which Roll?`;
@@ -33,7 +35,7 @@ const ogImageURL = new URL(ogImage, Astro.site);
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
-      href="https://fonts.googleapis.com/css2?family=Comfortaa:wght@400;600;700&family=Open+Sans:wght@400;600;700&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Comfortaa:wght@400;700&family=Open+Sans:wght@400;600;700&display=swap"
       rel="stylesheet"
     />
     <meta property="og:url" content={canonicalURL} />
@@ -47,19 +49,11 @@ const ogImageURL = new URL(ogImage, Astro.site);
     <meta name="twitter:image" content={ogImageURL} />
     <title>{fullTitle}</title>
   </head>
-  <body>
-    <Header />
+  <body class:list={[homeLayout ? 'bg-[#f35d15]' : 'bg-white']}>
+    <Header variant={homeLayout ? 'overlay' : 'solid'} />
     <main>
       <slot />
     </main>
     <Footer />
-    <script>
-      const toggle = document.querySelector('.nav-toggle');
-      const nav = document.querySelector('.site-nav');
-      toggle?.addEventListener('click', () => {
-        const isOpen = nav?.classList.toggle('is-open');
-        toggle.setAttribute('aria-expanded', String(isOpen));
-      });
-    </script>
   </body>
 </html>

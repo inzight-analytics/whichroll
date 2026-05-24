@@ -1,66 +1,89 @@
 ---
-import BaseLayout from '../layouts/BaseLayout.astro';
+import BaseLayout from "../layouts/BaseLayout.astro";
 ---
 
-<BaseLayout title="Home">
-  <section class="hero section">
-    <div class="container">
-      <div class="hero__grid">
-        <div>
-          <h1>
-            <strong>Which Roll? – Ko Tēhea Rārangi Pōti?</strong>
-          </h1>
-          <p class="hero__intro">
-            was a short anonymous survey held in 2022 asking people why they choose the Māori or General
-            electoral roll.
-          </p>
-          <p>
-            <a href="/about-us/" class="btn">About Us</a>
-            <a href="/results/" class="btn btn--outline" style="margin-left: 0.5rem">Survey Results</a>
-          </p>
-        </div>
-        <div class="hero__characters">
-          <img src="/images/Characters-03.png" alt="" width="400" height="566" loading="eager" />
-          <img src="/images/Characters-04.png" alt="" width="400" height="566" loading="eager" />
-        </div>
+<BaseLayout title="Home" homeLayout>
+  <section
+    class="relative flex min-h-[89vh] flex-col overflow-hidden bg-linear-to-t from-roll-gold from-7% to-roll-orange"
+  >
+    <!-- Gold V overlay -->
+    <div class="pointer-events-none absolute inset-0" aria-hidden="true">
+      <div
+        class="absolute bottom-0 left-1/2 h-[75%] w-[min(140%,900px)] -translate-x-1/2 bg-linear-to-t from-roll-gold/90 via-roll-gold/40 to-transparent"
+        style="clip-path: polygon(50% 100%, 0 0, 100% 0);"
+      >
       </div>
     </div>
-  </section>
 
-  <section class="section section--alt">
-    <div class="container text-center">
-      <h2>Explore the project</h2>
-      <hr class="divider" />
-      <div class="card-grid card-grid--2">
-        <div class="card">
-          <h3>About the survey</h3>
-          <p>
-            Learn why we ran the survey, who was involved, and read answers to frequently asked
-            questions.
-          </p>
-          <a href="/about-us/" class="card__link">About Us →</a>
-        </div>
-        <div class="card">
-          <h3>Survey results</h3>
-          <p>
-            See the top reasons Māori chose the Māori roll or General roll, and results from our
-            knowledge quiz.
-          </p>
-          <a href="/results/" class="card__link">View Results →</a>
-        </div>
-        <div class="card">
-          <h3>Resources</h3>
-          <p>
-            Videos, articles, and official information about the Māori and General electoral rolls.
-          </p>
-          <a href="/resources/" class="card__link">Browse Resources →</a>
-        </div>
-        <div class="card">
-          <h3>Publications</h3>
-          <p>Research papers and publications from the Which Roll? project team.</p>
-          <a href="/publications/" class="card__link">View Publications →</a>
-        </div>
+    <!-- Characters -->
+    <div
+      class="pointer-events-none absolute inset-x-0 top-0 bottom-0 z-10 hidden md:block"
+      aria-hidden="true"
+    >
+      <div
+        class="mx-auto flex h-full max-w-[1410px] items-center justify-between px-4 sm:px-6 lg:px-8"
+      >
+        <img
+          src="/images/Characters-04.png"
+          alt=""
+          class="h-auto max-h-[min(55vh,520px)] w-[22%] max-w-[340px] min-w-[120px]"
+          width="400"
+          height="566"
+          loading="eager"
+        />
+        <img
+          src="/images/Characters-03.png"
+          alt=""
+          class="h-auto max-h-[min(55vh,520px)] w-[22%] max-w-[360px] min-w-[120px]"
+          width="400"
+          height="566"
+          loading="eager"
+        />
       </div>
+    </div>
+
+    <!-- Hero content -->
+    <div
+      class="relative z-20 mx-auto flex w-full max-w-[1410px] flex-1 flex-col items-center justify-center px-4 pb-28 pt-24 text-center sm:px-6 sm:pb-32 lg:px-8"
+    >
+      <img
+        src="/images/Which-Roll-02.png"
+        alt="Which Roll?"
+        class="mb-8 w-[min(85%,520px)]"
+        width="520"
+        height="221"
+        loading="eager"
+      />
+
+      <a
+        href="/about-us/"
+        class="mb-8 inline-block rounded-full border border-roll-gold bg-roll-gold px-12 py-4 text-base font-semibold text-white no-underline transition-colors hover:border-white hover:bg-white hover:text-roll-text"
+      >
+        About us
+      </a>
+
+      <h1
+        class="hero-intro max-w-lg font-heading text-base leading-relaxed text-white sm:text-lg font-normal"
+      >
+        <span class="font-bold">Which Roll? – Ko Tēhea Rārangi Pōti?</span> was a
+        short anonymous survey held in 2022 asking people why they choose the Māori
+        or General electoral roll.
+      </h1>
+    </div>
+
+    <!-- Bottom chevron -->
+    <div
+      class="pointer-events-none absolute inset-x-0 bottom-0 z-10 leading-none"
+      aria-hidden="true"
+    >
+      <svg
+        xmlns="http://www.w3.org/2000/svg"
+        viewBox="0 0 1000 100"
+        preserveAspectRatio="none"
+        class="block h-16 w-full fill-roll-orange sm:h-24 md:h-32 lg:h-[200px]"
+      >
+        <path d="M500.2,94.7L0,0v100h1000V0L500.2,94.7z"></path>
+      </svg>
     </div>
   </section>
 </BaseLayout>
