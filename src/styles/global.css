@@ -175,4 +175,52 @@
   .reason-item__title {
     @apply mb-2 font-heading text-lg;
   }
+
+  /* Hero bottom chevron — two panels, fixed angle at all viewport widths */
+  .hero {
+    --chevron-h: 12vw;
+    --chevron-slope: 0.947;
+    --layout-w: min(100vw, 1410px);
+    --stage-margin: max(0px, (100vw - 1410px) / 2);
+    /* Size/inset relative to layout, not viewport — stops drift past 1410px */
+    --char-inset: max(1rem, calc(var(--layout-w) * 0.04));
+    --char-width-left: min(calc(var(--layout-w) * 0.22), 340px);
+    --char-width-right: min(calc(var(--layout-w) * 0.22), 360px);
+    /* Set by hero-character-position.ts; px fallback avoids invalid calc in some browsers */
+    --char-bottom-left: 6vw;
+    --char-bottom-right: 6vw;
+  }
+
+  .hero-chevron {
+    @apply pointer-events-none absolute inset-x-0 bottom-0 z-20 flex;
+    height: var(--chevron-h);
+  }
+
+  .hero-chevron__face {
+    @apply flex-1 bg-roll-orange;
+  }
+
+  .hero-chevron__face--left {
+    clip-path: polygon(0 0, 100% 94.7%, 100% 100%, 0 100%);
+  }
+
+  .hero-chevron__face--right {
+    clip-path: polygon(0 94.7%, 100% 0, 100% 100%, 0 100%);
+  }
+
+  .hero-character {
+    @apply absolute h-auto max-h-[min(45vh,520px)] min-w-[120px];
+  }
+
+  .hero-character--left {
+    left: calc(var(--stage-margin) + var(--char-inset));
+    width: var(--char-width-left);
+    bottom: var(--char-bottom-left);
+  }
+
+  .hero-character--right {
+    right: calc(var(--stage-margin) + var(--char-inset));
+    width: var(--char-width-right);
+    bottom: var(--char-bottom-right);
+  }
 }

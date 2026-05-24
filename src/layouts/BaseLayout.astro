@@ -49,9 +49,9 @@ const ogImageURL = new URL(ogImage, Astro.site);
     <meta name="twitter:image" content={ogImageURL} />
     <title>{fullTitle}</title>
   </head>
-  <body class:list={[homeLayout ? 'bg-[#f35d15]' : 'bg-white']}>
+  <body class:list={[homeLayout ? 'bg-[#f35d15]' : 'bg-white', 'flex min-h-screen flex-col']}>
     <Header variant={homeLayout ? 'overlay' : 'solid'} />
-    <main>
+    <main class="flex-1">
       <slot />
     </main>
     <Footer />
