@@ -50,9 +50,13 @@
     @apply mb-4 leading-relaxed;
   }
 
-  /* Header nav — white pill on orange for strong contrast */
+  /* Header nav */
   .nav-link {
-    @apply block rounded-md px-3 py-2 text-sm font-semibold no-underline transition-colors xl:px-4 xl:text-base;
+    @apply block rounded-md px-3 py-2 text-sm font-semibold no-underline transition-none [-webkit-tap-highlight-color:transparent] xl:px-4 xl:text-base;
+  }
+
+  .nav-link:focus-visible {
+    @apply outline-2 outline-offset-2 outline-white;
   }
 
   .nav-link:not(.nav-link--active) {

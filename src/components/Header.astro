@@ -30,10 +30,10 @@ const isOverlay = variant === 'overlay';
     <button
       type="button"
       id="nav-toggle"
-      class="inline-flex flex-col items-center justify-center gap-1.5 rounded-md bg-roll-gold p-2.5 lg:hidden"
+      class="inline-flex flex-col items-center justify-center gap-1.5 rounded-md p-2.5 lg:hidden [-webkit-tap-highlight-color:transparent]"
       aria-label="Toggle menu"
       aria-expanded="false"
-      aria-controls="site-nav"
+      aria-controls="site-nav-mobile"
     >
       <span class="block h-0.5 w-6 bg-white"></span>
       <span class="block h-0.5 w-6 bg-white"></span>
@@ -63,10 +63,10 @@ const isOverlay = variant === 'overlay';
     </nav>
   </div>
 
-  <!-- Mobile menu -->
+  <!-- Mobile menu — absolute overlay, no layout shift -->
   <nav
     id="site-nav-mobile"
-    class="hidden border-t border-white/20 bg-roll-orange lg:hidden"
+    class="absolute inset-x-0 top-full z-50 hidden border-t border-white/20 bg-roll-orange shadow-lg lg:hidden"
     aria-label="Mobile navigation"
   >
     <ul class="flex flex-col px-4 py-3">
