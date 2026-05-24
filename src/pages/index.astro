@@ -42,29 +42,49 @@ import BaseLayout from "../layouts/BaseLayout.astro";
     <div
       class="relative z-20 mx-auto flex w-full max-w-[1410px] flex-1 flex-col items-center justify-center px-4 pb-16 pt-20 text-center sm:px-6 sm:pb-20 lg:px-8"
     >
+      <!-- Mobile: figures replace logo (reversed vs desktop flanking) -->
+      <div class="hero-characters-mobile mb-6 md:hidden" aria-hidden="true">
+        <img
+          src="/images/Characters-03.png"
+          alt=""
+          class="hero-character-mobile"
+          width="400"
+          height="566"
+          loading="eager"
+        />
+        <img
+          src="/images/Characters-04.png"
+          alt=""
+          class="hero-character-mobile"
+          width="400"
+          height="566"
+          loading="eager"
+        />
+      </div>
+
       <img
         src="/images/Which-Roll-02.png"
         alt="Which Roll?"
-        class="mb-8 w-[min(85%,520px)]"
+        class="mb-8 hidden w-[min(85%,520px)] md:block"
         width="520"
         height="221"
         loading="eager"
       />
 
-      <a
-        href="/about-us/"
-        class="mb-8 inline-block rounded-full border border-roll-gold bg-roll-gold px-12 py-4 text-base font-semibold text-white no-underline transition-colors hover:border-white hover:bg-white hover:text-roll-text"
-      >
-        About us
-      </a>
-
       <h1
-        class="hero-intro max-w-lg font-heading text-base leading-relaxed text-white sm:text-lg font-normal"
+        class="hero-intro mb-8 max-w-lg font-heading text-base leading-relaxed text-white sm:text-lg font-normal"
       >
         <span class="font-bold">Which Roll? – Ko Tēhea Rārangi Pōti?</span> was a
         short anonymous survey held in 2022 asking people why they choose the Māori
         or General electoral roll.
       </h1>
+
+      <a
+        href="/about-us/"
+        class="inline-block rounded-full border border-roll-orange bg-roll-orange px-12 py-4 text-base font-semibold text-white no-underline transition-colors hover:border-white hover:bg-white hover:text-roll-text"
+      >
+        About us
+      </a>
     </div>
 
     <!-- Bottom chevron -->

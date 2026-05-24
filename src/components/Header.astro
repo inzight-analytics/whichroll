@@ -13,7 +13,7 @@ const isOverlay = variant === 'overlay';
 <header
   class:list={[
     'relative z-50 w-full',
-    isOverlay ? 'absolute inset-x-0 top-0 bg-transparent' : 'bg-[#f35d15]',
+    isOverlay ? 'absolute inset-x-0 top-0 bg-transparent' : 'bg-roll-orange',
   ]}
 >
   <div class="mx-auto flex max-w-[1410px] items-center justify-between gap-4 px-4 py-4 sm:px-6 lg:px-8">
@@ -51,12 +51,7 @@ const isOverlay = variant === 'overlay';
             <li>
               <a
                 href={href}
-                class:list={[
-                  'block rounded-md px-3 py-2 text-sm font-semibold no-underline xl:px-4 xl:text-base',
-                  currentPath === href
-                    ? 'bg-roll-gold text-roll-text'
-                    : 'text-white hover:bg-roll-gold hover:text-roll-text',
-                ]}
+                class:list={['nav-link', currentPath === href && 'nav-link--active']}
                 aria-current={currentPath === href ? 'page' : undefined}
               >
                 {label}
@@ -71,7 +66,7 @@ const isOverlay = variant === 'overlay';
   <!-- Mobile menu -->
   <nav
     id="site-nav-mobile"
-    class="hidden border-t border-white/20 bg-[#f35d15] lg:hidden"
+    class="hidden border-t border-white/20 bg-roll-orange lg:hidden"
     aria-label="Mobile navigation"
   >
     <ul class="flex flex-col px-4 py-3">
@@ -81,10 +76,8 @@ const isOverlay = variant === 'overlay';
             <a
               href={href}
               class:list={[
-                'block rounded-md px-3 py-3 text-base font-semibold no-underline',
-                currentPath === href
-                  ? 'bg-roll-gold text-roll-text'
-                  : 'text-white hover:bg-roll-gold hover:text-roll-text',
+                'nav-link py-3 text-base xl:px-3 xl:py-2 xl:text-sm',
+                currentPath === href && 'nav-link--active',
               ]}
               aria-current={currentPath === href ? 'page' : undefined}
             >
