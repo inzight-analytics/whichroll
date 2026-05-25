@@ -6,24 +6,48 @@ interface FAQItem {
 
 interface Props {
   items: FAQItem[];
+  variant?: 'default' | 'about';
 }
 
-const { items } = Astro.props;
+const { items, variant = 'default' } = Astro.props;
+const isAbout = variant === 'about';
 ---
 
-<section class="section section--gradient" id="faq">
-  <div class="container">
-    <h2 class="text-center">Frequently Asked Questions</h2>
-    <hr class="divider" />
-    <div class="faq-list">
-      {
-        items.map(({ question, answer }) => (
-          <details class="faq-item">
-            <summary>{question}</summary>
-            <div class="faq-answer" set:html={answer} />
-          </details>
-        ))
-      }
-    </div>
-  </div>
-</section>
+{
+  isAbout ? (
+    <>
+      <section class="about-faq-banner" aria-labelledby="faq-heading">
+        <div class="container--site">
+          <h2 id="faq-heading" class="about-faq-banner__title">Frequently Asked Questions</h2>
+        </div>
+      </section>
+      <section class="about-faq section" id="faq">
+        <div class="container--site">
+          <div class="faq-list faq-list--about">
+            {items.map(({ question, answer }) => (
+              <details class="faq-item">
+                <summary>{question}</summary>
+                <div class="faq-answer" set:html={answer} />
+              </details>
+            ))}
+          </div>
+        </div>
+      </section>
+    </>
+  ) : (
+    <section class="section section--gradient" id="faq">
+      <div class="container">
+        <h2 class="text-center">Frequently Asked Questions</h2>
+        <hr class="divider" />
+        <div class="faq-list">
+          {items.map(({ question, answer }) => (
+            <details class="faq-item">
+              <summary>{question}</summary>
+              <div class="faq-answer" set:html={answer} />
+            </details>
+          ))}
+        </div>
+      </div>
+    </section>
+  )
+}

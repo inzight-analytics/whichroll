@@ -1,0 +1,13 @@
+---
+interface Props {
+  title: string;
+}
+
+const { title } = Astro.props;
+---
+
+<div class="page-banner">
+  <div class="page-banner__inner container">
+    <h1 class="page-banner__title">{title}</h1>
+  </div>
+</div>

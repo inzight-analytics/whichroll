@@ -1,10 +1,15 @@
 ---
 import Header from '../components/Header.astro';
+import PageBanner from '../components/PageBanner.astro';
 import Footer from '../components/Footer.astro';
 import '../styles/global.css';
 
 interface Props {
   title: string;
+  /** Page banner heading; defaults to `title` when omitted */
+  bannerTitle?: string;
+  /** Set false for pages with a custom intro header (e.g. About Us) */
+  showPageBanner?: boolean;
   description?: string;
   ogImage?: string;
   homeLayout?: boolean;
@@ -12,10 +17,14 @@ interface Props {
 
 const {
   title,
+  bannerTitle,
+  showPageBanner = true,
   description = 'A short anonymous survey asking people why they choose the Māori or General electoral roll.',
   ogImage = '/images/og-image-cover.jpg',
   homeLayout = false,
 } = Astro.props;
+
+const pageBannerTitle = bannerTitle ?? title;
 
 const fullTitle = title === 'Home' ? 'Which Roll? – Ko Tēhea Rārangi Pōti?' : `${title} – Which Roll?`;
 const canonicalURL = new URL(Astro.url.pathname, Astro.site);
@@ -52,6 +61,7 @@ const ogImageURL = new URL(ogImage, Astro.site);
   <body class:list={[homeLayout ? 'bg-[#f35d15]' : 'bg-white', 'flex min-h-screen flex-col']}>
     <Header variant={homeLayout ? 'overlay' : 'solid'} />
     <main class="flex-1">
+      {!homeLayout && showPageBanner && <PageBanner title={pageBannerTitle} />}
       <slot />
     </main>
     <Footer />

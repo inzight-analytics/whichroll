@@ -6,9 +6,9 @@
   --color-roll-orange-light: #f28729;
   --color-roll-gold: #e4af23;
   --color-roll-text: #4a4949;
-  /* --font-heading: 'Comfortaa', cursive, sans-serif; */
+  --font-heading: 'Comfortaa', cursive, sans-serif;
   --font-body: 'Open Sans', system-ui, sans-serif;
-  --font-heading: var(--font-body);
+  /* --font-heading: var(--font-body); */
 }
 
 @layer base {
@@ -109,6 +109,10 @@
     @apply mx-auto w-full max-w-[1100px] px-4 sm:px-6;
   }
 
+  .container--site {
+    @apply mx-auto w-full max-w-[1410px] px-4 sm:px-6 lg:px-8;
+  }
+
   .divider {
     @apply mx-auto my-6 h-1 w-20 border-0 bg-roll-gold;
   }
@@ -153,8 +157,137 @@
     @apply mt-3 inline-block font-semibold text-roll-orange no-underline hover:text-roll-orange-dark;
   }
 
-  .page-header img.logo {
-    @apply mx-auto max-w-[600px];
+  /* Inner-page banner — straight edge into body */
+  .page-banner {
+    @apply bg-roll-orange py-8 md:py-10;
+  }
+
+  .page-banner__title {
+    @apply text-center text-3xl font-bold text-white md:text-4xl;
+  }
+
+  /* About Us */
+  .about-hero {
+    @apply bg-linear-to-b from-roll-orange to-roll-gold pb-0 pt-6 md:pt-10;
+    color: white;
+  }
+
+  .about-hero .container {
+    @apply pb-0;
+  }
+
+  .about-hero__grid {
+    @apply grid items-stretch gap-6 md:grid-cols-[auto_1fr] md:gap-10 lg:gap-14;
+  }
+
+  .about-hero__figure {
+    @apply order-2 m-0 flex w-fit shrink-0 min-h-0 items-end justify-center leading-none md:order-1 md:justify-start;
+  }
+
+  .about-hero__figure img {
+    @apply m-0 block h-auto w-auto max-h-[min(38vh,320px)] max-w-[240px] object-contain object-bottom sm:max-h-[min(42vh,380px)] sm:max-w-[280px] md:max-h-[min(48vh,420px)] md:max-w-[300px];
+  }
+
+  .about-hero__title {
+    @apply order-1 self-center text-xl font-normal leading-snug text-white md:order-2 md:text-[clamp(1.25rem,2.2vw,2rem)];
+  }
+
+  .about-hero__title strong {
+    @apply font-bold;
+  }
+
+  .about-intro__grid {
+    @apply grid items-center gap-10 md:grid-cols-2 md:gap-16 lg:gap-20;
+  }
+
+  .about-intro__lead {
+    @apply mb-5 mt-0 font-heading text-lg font-bold leading-normal text-roll-orange md:text-lg;
+  }
+
+  .about-intro__copy p {
+    @apply mb-0 leading-relaxed text-roll-text;
+  }
+
+  .about-intro__icon {
+    @apply flex justify-center md:justify-center;
+  }
+
+  .about-intro__icon img {
+    @apply h-auto w-full max-w-[280px] md:max-w-[300px];
+  }
+
+  .about-survey-cta {
+    @apply relative overflow-hidden bg-linear-to-t from-roll-orange to-roll-gold py-12 md:py-16;
+  }
+
+  .about-survey-cta::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: url('/images/Which-Roll-Design-Strip-19.png') bottom right / 43% auto no-repeat;
+    opacity: 0.34;
+    pointer-events: none;
+  }
+
+  .about-survey-cta__inner {
+    @apply relative z-10 max-w-3xl text-center;
+  }
+
+  .about-survey-cta__title {
+    @apply mb-3 mt-0 text-2xl font-semibold text-white md:text-[2.1rem];
+  }
+
+  .about-survey-cta__text {
+    @apply mb-8 text-base text-white;
+  }
+
+  .about-survey-cta__btn {
+    @apply inline-block rounded-full border-2 border-white bg-white px-6 py-3 font-semibold text-roll-orange no-underline hover:border-roll-orange-dark hover:bg-roll-orange-dark hover:text-white;
+  }
+
+  .about-team__grid {
+    @apply grid items-stretch gap-10 md:grid-cols-[1fr_2fr] md:gap-16 lg:gap-20;
+  }
+
+  .about-team__icon {
+    @apply mx-auto w-[60%] md:h-full md:w-full;
+  }
+
+  .about-team__icon img {
+    @apply w-full object-contain md:h-full md:w-full;
+  }
+
+  .about-team__title {
+    @apply mt-0 text-2xl font-bold text-roll-orange;
+  }
+
+  .about-team__intro {
+    @apply mb-6 leading-relaxed;
+  }
+
+  .about-faq-banner {
+    @apply bg-linear-to-t from-roll-orange to-roll-gold py-10 md:py-12;
+  }
+
+  .about-faq-banner__title {
+    @apply text-center text-2xl font-bold text-white md:text-3xl;
+  }
+
+  .faq-list--about .faq-item {
+    @apply mb-3 rounded-[25px] border border-roll-orange/20 shadow-sm;
+  }
+
+  .faq-list--about summary {
+    @apply relative list-none pl-8;
+  }
+
+  .faq-list--about summary::before {
+    content: '▸';
+    @apply absolute left-4 text-roll-orange;
+  }
+
+  .faq-list--about details[open] summary::before {
+    content: '▾';
   }
 
   .team-list {
