@@ -91,13 +91,107 @@
     @apply border-t border-gray-100 px-5 py-4;
   }
 
-  .resource-item,
-  .publication-item {
+  .resource-item {
     @apply border-b border-gray-200 py-5 last:border-b-0;
   }
 
+  /* Publications — featured cards */
+  .publications-featured {
+    @apply py-10 md:py-12;
+  }
+
+  .publications-featured__grid {
+    @apply grid gap-10 md:grid-cols-3 md:gap-8 lg:gap-10;
+  }
+
+  .publication-card {
+    @apply flex flex-row gap-4 md:flex-col md:gap-5;
+  }
+
+  .publication-card__figure {
+    @apply m-0 w-1/3 shrink-0 md:w-full;
+  }
+
+  .publication-card__figure a {
+    @apply block no-underline;
+  }
+
+  .publication-card__figure img {
+    @apply block h-auto w-full rounded-sm object-cover;
+  }
+
+  .publication-card__body {
+    @apply flex min-w-0 flex-1 flex-col gap-3 md:flex-none;
+  }
+
+  .publication-card__title {
+    @apply m-0 text-base font-bold leading-snug text-roll-orange md:text-lg lg:text-xl;
+  }
+
+  .publication-card__citation {
+    @apply text-sm leading-relaxed text-roll-text;
+  }
+
+  .publication-card__citation em {
+    font-style: italic;
+  }
+
+  .publication-card__link {
+    @apply inline-flex items-center gap-2 font-semibold text-roll-gold no-underline hover:text-roll-orange;
+  }
+
+  .publication-card__icon {
+    @apply shrink-0 text-roll-orange;
+  }
+
+  /* Publications — grant section */
+  .publications-grant-banner {
+    @apply relative flex min-h-[150px] items-center justify-center overflow-hidden bg-linear-to-b from-roll-gold to-roll-orange px-4 py-10;
+  }
+
+  .publications-grant-banner::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: url('/images/Which-Roll-Design-Strip-18.png') center right / contain no-repeat;
+    opacity: 0.48;
+    pointer-events: none;
+  }
+
+  .publications-grant-banner__title {
+    @apply relative z-10 m-0 max-w-3xl text-center text-2xl font-bold text-white md:text-3xl;
+  }
+
+  .publications-grant {
+    @apply pt-10 md:pt-12;
+  }
+
+  .publications-grant__list {
+    @apply flex flex-col gap-10 md:gap-12;
+  }
+
+  .publication-grant-item {
+    @apply border-0 p-0;
+  }
+
+  .publication-grant-item__title {
+    @apply m-0 text-lg font-bold leading-snug text-roll-orange md:text-xl;
+  }
+
+  .publication-grant-item__citation {
+    @apply mt-3 text-sm leading-relaxed text-roll-text md:text-base;
+  }
+
+  .publication-grant-item__citation em {
+    font-style: italic;
+  }
+
+  .publication-grant-item__link {
+    @apply mt-3 inline-block font-semibold text-roll-gold no-underline hover:text-roll-orange;
+  }
+
   .reason-item {
-    @apply border-l-4 border-roll-gold bg-white py-5 pl-5 shadow-md;
+    @apply flex flex-col gap-2 rounded-xl border border-gray-200 bg-white p-6 shadow-sm;
   }
 
   /* Legacy layout helpers for inner pages (to be migrated) */
@@ -196,6 +290,14 @@
     @apply font-bold;
   }
 
+  .about-hero--title-only .about-hero__grid {
+    @apply grid-cols-1 justify-items-center py-8 md:py-12;
+  }
+
+  .about-hero--title-only .about-hero__title {
+    @apply order-none max-w-4xl text-center text-3xl font-bold md:text-4xl;
+  }
+
   .about-intro__grid {
     @apply grid items-center gap-10 md:grid-cols-2 md:gap-16 lg:gap-20;
   }
@@ -290,40 +392,312 @@
     content: '▾';
   }
 
-  .team-list {
-    @apply columns-1 gap-8 sm:columns-2;
-  }
-
   .team-list p {
     @apply break-inside-avoid;
   }
 
-  .resource-section {
-    @apply mb-10;
+  /* Resources page */
+  .resources-videos {
+    @apply py-10 md:py-12;
   }
 
-  .resource-section h2 {
-    @apply mt-0 border-b-2 border-roll-gold pb-2;
+  .resources-links.section {
+    @apply py-8 md:py-10;
   }
 
-  .graph-grid {
-    @apply mt-8 grid gap-6 sm:grid-cols-2;
+  .resources-links.section.pt-0 {
+    @apply pt-0;
   }
 
-  .graph-grid img {
-    @apply rounded-lg shadow-md;
+  .resources-grid {
+    @apply grid gap-8 md:gap-10;
+  }
+
+  .resources-grid--3 {
+    @apply md:grid-cols-3;
+  }
+
+  .resources-grid--4 {
+    @apply sm:grid-cols-2 lg:grid-cols-4;
+  }
+
+  .resource-video {
+    @apply flex flex-col gap-3;
+  }
+
+  .resource-video__title {
+    @apply m-0 text-lg font-bold text-roll-orange md:text-xl;
+  }
+
+  .resource-video__desc {
+    @apply m-0 flex-1 text-sm leading-relaxed text-roll-text;
+  }
+
+  .resource-video__embed {
+    @apply relative aspect-video w-full overflow-hidden rounded-sm bg-black/5;
+  }
+
+  .resource-video__embed iframe {
+    @apply absolute inset-0 h-full w-full border-0;
+  }
+
+  .resource-card {
+    @apply flex flex-col gap-3;
+  }
+
+  .resource-card__title {
+    @apply m-0 text-lg font-bold leading-snug text-roll-orange md:text-xl;
+  }
+
+  .resource-card__title a {
+    @apply text-roll-orange no-underline hover:text-roll-orange-dark;
+  }
+
+  .resource-card__desc {
+    @apply m-0 flex-1 text-sm leading-relaxed text-roll-text;
+  }
+
+  .resource-card__link {
+    @apply inline-flex items-center gap-2 font-semibold text-roll-gold no-underline hover:text-roll-orange;
+  }
+
+  .resource-card__icon {
+    @apply shrink-0 text-roll-orange;
+  }
+
+  .resources-media-banner {
+    @apply relative flex min-h-[150px] items-center justify-center overflow-hidden bg-linear-to-b from-roll-gold to-roll-orange px-4 py-10;
+  }
+
+  .resources-media-banner::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: url('/images/Which-Roll-Design-Strip-18.png') center right / contain no-repeat;
+    opacity: 0.48;
+    pointer-events: none;
+  }
+
+  .resources-media-banner__title {
+    @apply relative z-10 m-0 text-center text-2xl font-bold text-white md:text-3xl;
+  }
+
+  /* Results page */
+
+  .results-reasons__banner {
+    @apply relative flex min-h-[140px] items-center justify-center overflow-hidden bg-linear-to-b from-roll-gold to-roll-orange px-4 py-10 md:min-h-[160px];
+  }
+
+  .results-reasons__banner::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: url('/images/Which-Roll-Design-Strip-18.png') center right / contain no-repeat;
+    opacity: 0.45;
+    pointer-events: none;
+  }
+
+  .results-reasons__banner--alt::before {
+    background-image: url('/images/Which-Roll-Design-Strip-19.png');
+    background-position: bottom right;
+    background-size: 43% auto;
+  }
+
+  .results-reasons__banner-title {
+    @apply relative z-10 m-0 max-w-4xl text-center text-xl font-bold text-white md:text-2xl lg:text-3xl;
+  }
+
+  .results-reasons__content {
+    @apply bg-white py-10 md:py-14;
+  }
+
+  .results-reasons__lead {
+    @apply mb-8 text-center text-base leading-relaxed text-roll-text md:text-lg;
   }
 
   .reason-list {
     @apply grid gap-6 md:grid-cols-2;
   }
 
-  .reason-item__number {
-    @apply font-heading text-2xl text-roll-gold;
+  .reason-item__title {
+    @apply m-0 font-heading text-lg font-bold leading-snug text-roll-orange;
   }
 
-  .reason-item__title {
-    @apply mb-2 font-heading text-lg;
+  .reason-item__desc {
+    @apply m-0 text-sm leading-relaxed text-roll-text md:text-base;
+  }
+
+  .reason-item__desc a {
+    @apply font-semibold text-roll-orange underline hover:text-roll-orange-dark;
+  }
+
+  .reason-item--other .reason-item__desc {
+    @apply text-xs leading-relaxed md:text-sm;
+  }
+
+  .results-quiz {
+    @apply pb-12 md:pb-16;
+  }
+
+  .results-quiz__header {
+    @apply bg-[#f7f4ef] py-10 md:py-12;
+  }
+
+  .results-quiz__title {
+    @apply m-0 text-center text-2xl font-bold text-roll-orange md:text-3xl;
+  }
+
+  .results-quiz__intro {
+    @apply mx-auto mt-6 max-w-3xl space-y-4 text-center text-sm leading-relaxed text-roll-text md:text-base;
+  }
+
+  .results-quiz__legend {
+    @apply text-roll-text;
+  }
+
+  .results-quiz__charts-wrap {
+    @apply bg-white py-10 md:py-12;
+  }
+
+  .results-quiz__charts {
+    @apply flex flex-col gap-10 md:gap-12;
+  }
+
+  .results-quiz__notes {
+    @apply mx-auto max-w-3xl space-y-4 bg-[#f7f4ef] px-4 py-10 text-sm leading-relaxed text-roll-text sm:px-6 md:py-12 md:text-base lg:px-8;
+  }
+
+  .quiz-charts-grid {
+    @apply grid gap-8 md:grid-cols-2 lg:gap-10;
+  }
+
+  .quiz-charts-grid--standalone {
+    @apply md:grid-cols-1 lg:grid-cols-3;
+  }
+
+  .quiz-chart {
+    @apply m-0 flex flex-col gap-3;
+  }
+
+  .quiz-chart__title {
+    @apply m-0 text-base font-bold leading-snug text-black md:text-lg;
+  }
+
+  .quiz-chart__body {
+    @apply flex flex-col;
+  }
+
+  .quiz-chart__plot {
+    --quiz-chart-height: 10.5rem;
+    --quiz-y-axis-width: 2.5rem;
+    --quiz-y-label-width: 1.5rem;
+    @apply grid gap-x-2 gap-y-1.5;
+    grid-template-columns: var(--quiz-y-label-width) var(--quiz-y-axis-width) minmax(0, 1fr);
+    grid-template-rows: var(--quiz-chart-height) auto;
+    grid-template-areas:
+      'y-label y-axis chart'
+      '. . x-labels';
+  }
+
+  .quiz-chart__y-label {
+    grid-area: y-label;
+    @apply m-0 flex items-center justify-center self-center text-[0.65rem] font-semibold uppercase tracking-wide text-roll-text/70 sm:text-xs;
+    writing-mode: vertical-rl;
+    transform: rotate(180deg);
+    text-align: center;
+  }
+
+  .quiz-chart__y-axis {
+    grid-area: y-axis;
+    @apply relative shrink-0;
+    height: var(--quiz-chart-height);
+  }
+
+  .quiz-chart__y-tick {
+    @apply absolute right-0 text-[0.65rem] font-medium tabular-nums leading-none text-roll-text/70 sm:text-xs;
+    transform: translateY(-50%);
+  }
+
+  .quiz-chart__y-tick[data-tick='100'] {
+    transform: translateY(0);
+  }
+
+  .quiz-chart__y-tick[data-tick='0'] {
+    transform: translateY(-100%);
+  }
+
+  .quiz-chart__chart-area {
+    grid-area: chart;
+    @apply relative min-w-0 border-b-2 border-roll-text/25;
+    height: var(--quiz-chart-height);
+  }
+
+  .quiz-chart__grid {
+    @apply pointer-events-none absolute inset-0;
+  }
+
+  .quiz-chart__grid-line {
+    @apply absolute left-0 right-0 border-t border-roll-text/10;
+  }
+
+  .quiz-chart__grid-line[data-tick='100'] {
+    @apply border-t-0;
+    bottom: 100%;
+  }
+
+  .quiz-chart__bars {
+    @apply relative z-10 flex h-full items-end justify-around gap-1 px-1 sm:gap-2 sm:px-2;
+  }
+
+  .quiz-chart__column {
+    @apply flex h-full min-w-0 flex-1 max-w-22 items-end justify-center;
+  }
+
+  .quiz-chart__track {
+    @apply relative flex h-full w-full max-w-11 items-end justify-center sm:max-w-13;
+  }
+
+  .quiz-chart__bar {
+    @apply w-[78%] min-h-[2px] rounded-t-sm bg-gray-400 transition-[height] duration-500;
+  }
+
+  .quiz-chart__bar--top {
+    @apply bg-roll-orange;
+  }
+
+  .quiz-chart__value {
+    @apply absolute left-1/2 z-10 -translate-x-1/2 whitespace-nowrap text-[0.65rem] font-semibold tabular-nums text-roll-text sm:text-xs;
+    bottom: calc(var(--bar-pct) * 1% + 0.2rem);
+  }
+
+  .quiz-chart__x-labels {
+    grid-area: x-labels;
+    @apply flex justify-around gap-1 px-1 sm:gap-2 sm:px-2;
+  }
+
+  .quiz-chart__label {
+    @apply min-w-0 flex-1 max-w-22 text-center text-[0.65rem] leading-tight text-roll-text sm:text-xs;
+    hyphens: auto;
+  }
+
+  .quiz-charts-grid--standalone > .quiz-chart:first-child .quiz-chart__label {
+    @apply text-[0.5rem] leading-none hyphens-none sm:text-[0.55rem];
+  }
+
+  .quiz-chart__caption {
+    @apply m-0 text-sm leading-relaxed text-roll-text;
+  }
+
+  .quiz-chart-group {
+    @apply flex flex-col gap-6;
+  }
+
+  .quiz-chart-group__title {
+    @apply m-0 text-center text-lg font-bold text-roll-orange md:text-xl;
+  }
+
+  .quiz-chart-group__caption {
+    @apply m-0 text-center text-sm leading-relaxed text-roll-text md:text-base;
   }
 
   /* Hero bottom chevron — two panels, fixed angle at all viewport widths */

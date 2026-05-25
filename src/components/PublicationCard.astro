@@ -1,0 +1,43 @@
+---
+interface Props {
+  title: string;
+  citation: string;
+  image: string;
+  imageAlt?: string;
+  link?: string;
+  linkLabel?: string;
+}
+
+const { title, citation, image, imageAlt = '', link, linkLabel } = Astro.props;
+---
+
+<article class="publication-card">
+  <figure class="publication-card__figure">
+    {
+      link ? (
+        <a href={link} target="_blank" rel="noopener">
+          <img src={image} alt={imageAlt} width="800" height="500" loading="lazy" />
+        </a>
+      ) : (
+        <img src={image} alt={imageAlt} width="800" height="500" loading="lazy" />
+      )
+    }
+  </figure>
+  <div class="publication-card__body">
+    <h2 class="publication-card__title">{title}</h2>
+    <div class="publication-card__citation" set:html={citation} />
+    {
+      link && linkLabel && (
+        <a class="publication-card__link" href={link} target="_blank" rel="noopener">
+          <svg class="publication-card__icon" width="14" height="14" viewBox="0 0 512 512" aria-hidden="true">
+            <path
+              fill="currentColor"
+              d="M326.612 185.391c59.747 59.809 58.927 155.698.36 214.59-.11.12-.24.25-.36.37l-67.2 67.2c-59.27 59.27-155.699 59.262-214.96 0-59.27-59.26-59.27-155.7 0-214.96l37.1-37.1c9.84-9.84 26.786-3.3 27.294 10.606.548 15.959 3.165 31.904 7.8 47.25 2.54 8.76 1.6 18.36-2.52 26.48l-11.26 22.92c-6.34 12.9-1.38 28.34 11.06 35.65 12.44 7.31 28.02 2.52 35.65-11.06l22.92-11.26c8.12-4.12 17.72-5.06 26.48-2.52 15.346 4.635 31.291 7.252 47.25 7.8 13.906.508 20.446 17.454 10.606 27.294l-37.1 37.1zm227.48-125.01c-59.747-59.747-155.698-58.927-214.59-.36-.12.11-.25.24-.37.36l-67.2 67.2c-59.27 59.27-59.27 155.7 0 214.96l37.1 37.1c9.84 9.84 26.786 3.3 27.294-10.606.548-15.959 3.165-31.904 7.8-47.25 2.54-8.76 1.6-18.36-2.52-26.48l-11.26-22.92c-6.34-12.9-1.38-28.34 11.06-35.65 12.44-7.31 28.02-2.52 35.65 11.06l22.92 11.26c8.12 4.12 17.72 5.06 26.48 2.52 15.346-4.635 31.291-7.252 47.25-7.8 13.906-.508 20.446-17.454 10.606-27.294l-37.1-37.1z"
+            />
+          </svg>
+          <span>{linkLabel}</span>
+        </a>
+      )
+    }
+  </div>
+</article>

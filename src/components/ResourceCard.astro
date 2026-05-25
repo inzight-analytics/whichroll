@@ -1,0 +1,47 @@
+---
+interface Props {
+  title: string;
+  description: string;
+  link: string;
+  linkLabel: string;
+  titleHref?: string;
+  linkIcon?: 'video' | 'link';
+}
+
+const { title, description, link, linkLabel, titleHref, linkIcon = 'link' } = Astro.props;
+---
+
+<article class="resource-card">
+  {
+    titleHref ? (
+      <h2 class="resource-card__title">
+        <a href={titleHref} target="_blank" rel="noopener">
+          {title}
+        </a>
+      </h2>
+    ) : (
+      <h2 class="resource-card__title">{title}</h2>
+    )
+  }
+  <p class="resource-card__desc">{description}</p>
+  <a class="resource-card__link" href={link} target="_blank" rel="noopener">
+    {
+      linkIcon === 'video' ? (
+        <svg class="resource-card__icon" width="14" height="14" viewBox="0 0 576 512" aria-hidden="true">
+          <path
+            fill="currentColor"
+            d="M336.2 64H47.8C21.4 64 0 85.4 0 111.8v288.4C0 426.6 21.4 448 47.8 448h288.4c26.4 0 47.8-21.4 47.8-47.8V111.8c0-26.4-21.4-47.8-47.8-47.8zm189.4 37.7L416 177.3v157.4l109.6 75.5c21.2 14.6 50.4-.3 50.4-25.8V127.5c0-25.4-29.1-40.4-50.4-25.8z"
+          />
+        </svg>
+      ) : (
+        <svg class="resource-card__icon" width="14" height="14" viewBox="0 0 512 512" aria-hidden="true">
+          <path
+            fill="currentColor"
+            d="M326.612 185.391c59.747 59.809 58.927 155.698.36 214.59-.11.12-.24.25-.36.37l-67.2 67.2c-59.27 59.27-155.699 59.262-214.96 0-59.27-59.26-59.27-155.7 0-214.96l37.1-37.1c9.84-9.84 26.786-3.3 27.294 10.606.548 15.959 3.165 31.904 7.8 47.25 2.54 8.76 1.6 18.36-2.52 26.48l-11.26 22.92c-6.34 12.9-1.38 28.34 11.06 35.65 12.44 7.31 28.02 2.52 35.65-11.06l22.92-11.26c8.12-4.12 17.72-5.06 26.48-2.52 15.346 4.635 31.291 7.252 47.25 7.8 13.906.508 20.446 17.454 10.606 27.294l-37.1 37.1zm227.48-125.01c-59.747-59.747-155.698-58.927-214.59-.36-.12.11-.25.24-.37.36l-67.2 67.2c-59.27 59.27-59.27 155.7 0 214.96l37.1 37.1c9.84 9.84 26.786 3.3 27.294-10.606.548-15.959 3.165-31.904 7.8-47.25 2.54-8.76 1.6-18.36-2.52-26.48l-11.26-22.92c-6.34-12.9-1.38-28.34 11.06-35.65 12.44-7.31 28.02-2.52 35.65 11.06l22.92 11.26c8.12 4.12 17.72 5.06 26.48 2.52 15.346-4.635 31.291-7.252 47.25-7.8 13.906-.508 20.446-17.454 10.606-27.294l-37.1-37.1z"
+          />
+        </svg>
+      )
+    }
+    <span>{linkLabel}</span>
+  </a>
+</article>

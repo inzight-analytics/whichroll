@@ -1,12 +1,13 @@
 ---
-import BaseLayout from '../layouts/BaseLayout.astro';
+import BaseLayout from "../layouts/BaseLayout.astro";
+import { quizChartData } from "../data/quiz-results";
 
 const maoriRollReasons = [
   {
     number: 1,
-    title: 'To increase Māori representation',
+    title: "To increase Māori representation",
     description:
-      'Many felt the Māori roll was a voice for Māori, desired greater Māori representation, or felt their Māori roll representative better represented their own values, Māori interests, Kaupapa Māori politics, a Māori worldview, or Mana Motuhake.',
+      "Many felt the Māori roll was a voice for Māori, desired greater Māori representation, or felt their Māori roll representative better represented their own values, Māori interests, Kaupapa Māori politics, a Māori worldview, or Mana Motuhake.",
   },
   {
     number: 2,
@@ -16,13 +17,13 @@ const maoriRollReasons = [
   },
   {
     number: 3,
-    title: 'To tautoko the Māori Electorates',
+    title: "To tautoko the Māori Electorates",
     description:
-      'If more Māori enrol on the Māori roll the number of seats increase – these participants stated this fact or stated that they chose the Māori roll to support the roll, to protect the seats, or simply because they have the right to choose.',
+      "If more Māori enrol on the Māori roll the number of seats increase – these participants stated this fact or stated that they chose the Māori roll to support the roll, to protect the seats, or simply because they have the right to choose.",
   },
   {
     number: 4,
-    title: 'Because I wanted to vote for…',
+    title: "Because I wanted to vote for…",
     description:
       "Some chose the Māori roll because they felt their local General electorate was all but guaranteed to a certain candidate (a 'safe seat'), or because they preferred Māori roll candidates or parties. However, our results show that proportionately more Māori chose the General roll than the Māori roll for strategic reasons.",
   },
@@ -30,7 +31,7 @@ const maoriRollReasons = [
     number: 5,
     title: '"My Nan told me to": Influential relationships',
     description:
-      'Finally, some chose the Māori roll because they were influenced directly or indirectly by whānau, friends, or trusted others.',
+      "Finally, some chose the Māori roll because they were influenced directly or indirectly by whānau, friends, or trusted others.",
   },
 ];
 
@@ -70,104 +71,163 @@ const generalRollReasons = [
 
 <BaseLayout
   title="Survey Results"
-  bannerTitle="Why did you choose?"
+  showPageBanner={false}
   description="Top reasons Māori chose the Māori roll or General roll, and knowledge quiz results from the Which Roll? survey."
 >
-  <section class="section">
-    <div class="container">
-      <p>
-        The results of the Which Roll? – Ko Tēhea Rārangi Pōti? represent the most frequent reasons why
-        people of Māori descent chose either roll ("Māori descent" is the wording of the rules, but we now
-        refer to "Māori").
-      </p>
-      <p>
-        These results were compiled by University of Auckland summer scholars Rebecca Hini and Hannah
-        Overbye, who spent the rainy Tāmaki Makaurau summer inside reading your answers.
-      </p>
+  <section
+    class="about-hero about-hero--title-only"
+    aria-labelledby="results-heading"
+  >
+    <div class="container about-hero__grid">
+      <h1 id="results-heading" class="about-hero__title">
+        Why did you choose?
+      </h1>
     </div>
   </section>
 
-  <section class="section section--gradient">
-    <div class="container">
-      <h2 class="text-center">Top 5 Reasons for Choosing the Māori Roll</h2>
-      <p class="text-center"><strong>52% of Māori chose the Māori roll.</strong> Here are some of the reasons why:</p>
-      <div class="reason-list">
-        {
-          maoriRollReasons.map(({ number, title, description }) => (
-            <div class="reason-item">
-              <div class="reason-item__number">{number}</div>
-              <h3 class="reason-item__title">{title}</h3>
-              <p>{description}</p>
-            </div>
-          ))
-        }
-      </div>
-      <p style="margin-top: 2rem">
-        Other less frequent reasons included having more knowledge about the Māori roll, enrolment issues,
-        and having always been on the Māori roll (perhaps from before there was a choice). Within their
-        answers, some reflected on wanting to change rolls, and others on the lack of education and
-        knowledge out there around roll choice, especially when they were young.
-      </p>
-    </div>
-  </section>
-
-  <section class="section">
-    <div class="container">
-      <h2 class="text-center">Top 5 Reasons for Choosing the General Roll</h2>
-      <p class="text-center"><strong>48% of Māori chose the General roll.</strong> Here are some of the reasons why:</p>
-      <div class="reason-list">
-        {
-          generalRollReasons.map(({ number, title, description }) => (
-            <div class="reason-item">
-              <div class="reason-item__number">{number}</div>
-              <h3 class="reason-item__title">{title}</h3>
-              <p set:html={description} />
-            </div>
-          ))
-        }
-      </div>
-      <p style="margin-top: 2rem">
-        Other reasons included accidentally choosing the roll, not remembering, or feeling uncomfortable
-        voting on the Māori roll in a place where they are not mana whenua. Some also expressed a desire
-        to change electoral rolls.
-      </p>
-    </div>
-  </section>
-
-  <section class="section section--alt">
-    <div class="container">
-      <h2 class="text-center">Māori roll knowledge quiz</h2>
-      <hr class="divider" />
-      <p>The survey ended with an optional knowledge quiz (classic professors!).</p>
-      <p>
-        Around 1,200 of you completed this quiz. We have to remember, the actual level of knowledge out
-        there is probably lower than this – these results are from a group who were interested enough to do
-        a quiz. We show these results here to remind you of the answers, and to show what we need to tell
-        whānau and communities about roll choice.
-      </p>
-      <p><strong>In these results the orange bar represents the correct answer.</strong></p>
-
-      <div class="graph-grid">
-        <img src="/images/graph1.jpg" alt="Knowledge quiz result 1" loading="lazy" />
-        <img src="/images/graph2.jpg" alt="Knowledge quiz result 2" loading="lazy" />
-        <img src="/images/graph3.jpg" alt="Knowledge quiz result 3" loading="lazy" />
-        <img src="/images/graph4.jpg" alt="Knowledge quiz result 4" loading="lazy" />
-        <img src="/images/graph5.jpg" alt="Knowledge quiz result 5" loading="lazy" />
-      </div>
-
-      <div style="margin-top: 2rem">
-        <p>There were two important questions that show where people lack information:</p>
+  <section
+    class="about-intro section results-intro"
+    aria-labelledby="results-intro-lead"
+  >
+    <div class="container--site about-intro__grid">
+      <div class="about-intro__copy">
+        <h2 id="results-intro-lead" class="about-intro__lead">
+          The results of the Which Roll? – Ko Tēhea Rārangi Pōti? represent the
+          most frequent reasons why people of Māori descent chose either roll
+          ("Māori descent" is the wording of the rules, but we now refer to
+          "Māori").
+        </h2>
         <p>
-          Almost 40% who did the quiz thought we could change rolls at any time. The good news for them is
-          that this has changed – from 31st March you will be able to change rolls any time, except the 3
-          months before a General or Local Election or before a by-election in your area.
-        </p>
-        <p>
-          A minority of Māori know that the number of Māori electorates increases if more Māori join the
-          Māori roll. This is still true, and the new law means that the number of Māori electorates will
-          be determined based on enrolment numbers at 1st April.
+          These results were compiled by University of Auckland summer scholars
+          Rebecca Hini and Hannah Overbye, who spent the rainy Tāmaki Makaurau
+          summer inside reading your answers.
         </p>
       </div>
+      <figure class="about-intro__icon" aria-hidden="true">
+        <img
+          src="/images/results-intro-icon.svg"
+          alt=""
+          width="300"
+          height="300"
+          loading="eager"
+        />
+      </figure>
+    </div>
+  </section>
+
+  <section class="results-reasons" aria-labelledby="maori-roll-heading">
+    <div class="results-reasons__banner">
+      <h2 id="maori-roll-heading" class="results-reasons__banner-title">
+        Top 5 Reasons for Choosing the Māori Roll
+      </h2>
+    </div>
+    <div class="results-reasons__content">
+      <div class="container--site">
+        <p class="results-reasons__lead">
+          <strong>52% of Māori chose the Māori roll.</strong> Here are some of the
+          reasons why:
+        </p>
+        <div class="reason-list">
+          {
+            maoriRollReasons.map(({ number, title, description }) => (
+              <article class="reason-item">
+                <h3 class="reason-item__title">
+                  {number}. {title}
+                </h3>
+                <p class="reason-item__desc">{description}</p>
+              </article>
+            ))
+          }
+          <article class="reason-item reason-item--other">
+            <p class="reason-item__desc">
+              Other less frequent reasons included having more knowledge about
+              the Māori roll, enrolment issues, and having always been on the
+              Māori roll (perhaps from before there was a choice). Within their
+              answers, some reflected on wanting to change rolls, and others on
+              the lack of education and knowledge out there around roll choice,
+              especially when they were young.
+            </p>
+          </article>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="results-reasons" aria-labelledby="general-roll-heading">
+    <div class="results-reasons__banner results-reasons__banner--alt">
+      <h2 id="general-roll-heading" class="results-reasons__banner-title">
+        Top 5 Reasons for Choosing the General Roll
+      </h2>
+    </div>
+    <div class="results-reasons__content">
+      <div class="container--site">
+        <p class="results-reasons__lead">
+          <strong>48% of Māori chose the General roll.</strong> Here are some of the
+          reasons why:
+        </p>
+        <div class="reason-list">
+          {
+            generalRollReasons.map(({ number, title, description }) => (
+              <article class="reason-item">
+                <h3 class="reason-item__title">
+                  {number}. {title}
+                </h3>
+                <p class="reason-item__desc" set:html={description} />
+              </article>
+            ))
+          }
+          <article class="reason-item reason-item--other">
+            <p class="reason-item__desc">
+              Other reasons included accidentally choosing the roll, not
+              remembering, or feeling uncomfortable voting on the Māori roll in
+              a place where they are not mana whenua. Some also expressed a
+              desire to change electoral rolls.
+            </p>
+          </article>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="results-quiz" aria-labelledby="quiz-heading">
+    <div class="results-quiz__header">
+      <div class="container--site">
+        <h2 id="quiz-heading" class="results-quiz__title">
+          Māori roll knowledge quiz
+        </h2>
+        <hr class="divider" />
+        <div class="results-quiz__intro">
+          <p>
+            The survey ended with an optional knowledge quiz (classic
+            professors!).
+          </p>
+          <p>
+            Around 1,200 of you completed this quiz. We have to remember, the
+            actual level of knowledge out there is probably lower than this –
+            these results are from a group who were interested enough to do a
+            quiz. We show these results here to remind you of the answers, and
+            to show what we need to tell whānau and communities about roll
+            choice.
+          </p>
+          <p class="results-quiz__legend">
+            <strong
+              >In these results the orange bar represents the correct answer.</strong
+            >
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <div class="container--site results-quiz__charts-wrap">
+      <div id="quiz-charts" class="results-quiz__charts"></div>
     </div>
   </section>
 </BaseLayout>
+
+<script>
+  import { initQuizBarCharts } from "../scripts/quiz-bar-charts";
+  import { quizChartData } from "../data/quiz-results";
+
+  const root = document.getElementById("quiz-charts");
+  if (root) initQuizBarCharts(root, quizChartData);
+</script>
