@@ -579,8 +579,55 @@
     @apply m-0 flex flex-col gap-3;
   }
 
+  /* Equal title height per row on desktop (subgrid); flex + gap on mobile */
+  @media (min-width: 48rem) {
+    .quiz-charts-grid--grouped {
+      grid-template-rows: auto 1fr auto;
+    }
+
+    .quiz-charts-grid--grouped > .quiz-chart {
+      display: grid;
+      grid-template-rows: subgrid;
+      grid-row: span 3;
+      gap: 0;
+    }
+  }
+
+  @media (min-width: 64rem) {
+    .quiz-charts-grid--standalone {
+      grid-template-rows: auto 1fr;
+    }
+
+    .quiz-charts-grid--standalone > .quiz-chart {
+      display: grid;
+      grid-template-rows: subgrid;
+      grid-row: span 2;
+      gap: 0;
+    }
+  }
+
+  @supports not (grid-template-rows: subgrid) {
+    @media (min-width: 48rem) {
+      .quiz-charts-grid--grouped .quiz-chart__title {
+        min-height: 5.5rem;
+      }
+    }
+
+    @media (min-width: 64rem) {
+      .quiz-charts-grid--standalone .quiz-chart__title {
+        min-height: 6.5rem;
+      }
+    }
+  }
+
   .quiz-chart__title {
     @apply m-0 text-base font-bold leading-snug text-black md:text-lg;
+  }
+
+  @media (min-width: 48rem) {
+    .quiz-charts-grid .quiz-chart__title {
+      @apply pb-4;
+    }
   }
 
   .quiz-chart__body {
