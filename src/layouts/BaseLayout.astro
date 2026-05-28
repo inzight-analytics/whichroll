@@ -2,6 +2,7 @@
 import Header from '../components/Header.astro';
 import PageBanner from '../components/PageBanner.astro';
 import Footer from '../components/Footer.astro';
+import { withBase } from '../utils/base';
 import '../styles/global.css';
 
 interface Props {
@@ -28,7 +29,9 @@ const pageBannerTitle = bannerTitle ?? title;
 
 const fullTitle = title === 'Home' ? 'Which Roll? – Ko Tēhea Rārangi Pōti?' : `${title} – Which Roll?`;
 const canonicalURL = new URL(Astro.url.pathname, Astro.site);
-const ogImageURL = new URL(ogImage, Astro.site);
+const ogImageURL = new URL(withBase(ogImage), Astro.site);
+const imageStrip18 = `url("${withBase('/images/Which-Roll-Design-Strip-18.png')}")`;
+const imageStrip19 = `url("${withBase('/images/Which-Roll-Design-Strip-19.png')}")`;
 ---
 
 <!doctype html>
@@ -38,8 +41,8 @@ const ogImageURL = new URL(ogImage, Astro.site);
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="description" content={description} />
     <meta name="generator" content={Astro.generator} />
-    <link rel="icon" href="/images/cropped-Favicon-32x32.png" sizes="32x32" />
-    <link rel="apple-touch-icon" href="/images/cropped-Favicon-180x180.png" />
+    <link rel="icon" href={withBase('/images/cropped-Favicon-32x32.png')} sizes="32x32" />
+    <link rel="apple-touch-icon" href={withBase('/images/cropped-Favicon-180x180.png')} />
     <link rel="canonical" href={canonicalURL} />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -57,6 +60,12 @@ const ogImageURL = new URL(ogImage, Astro.site);
     <meta name="twitter:description" content={description} />
     <meta name="twitter:image" content={ogImageURL} />
     <title>{fullTitle}</title>
+    <style is:global define:vars={{ imageStrip18, imageStrip19 }}>
+      :root {
+        --image-strip-18: var(--imageStrip18);
+        --image-strip-19: var(--imageStrip19);
+      }
+    </style>
   </head>
   <body class:list={[homeLayout ? 'bg-[#f35d15]' : 'bg-white', 'flex min-h-screen flex-col']}>
     <Header variant={homeLayout ? 'overlay' : 'solid'} />

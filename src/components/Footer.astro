@@ -1,5 +1,6 @@
 ---
-import { navItems } from '../config/nav';
+import { homeHref, navItems } from '../config/nav';
+import { withBase } from '../utils/base';
 
 const currentPath = Astro.url.pathname;
 ---
@@ -24,9 +25,9 @@ const currentPath = Astro.url.pathname;
       </ul>
     </nav>
 
-    <a href="/" class="shrink-0" aria-label="Which Roll? home">
+    <a href={homeHref} class="shrink-0" aria-label="Which Roll? home">
       <img
-        src="/images/single-lol-qvbhwhz9u5pz0yacb7z4q2u0zottvqzplxa0uza4xg.png"
+        src={withBase('/images/single-lol-qvbhwhz9u5pz0yacb7z4q2u0zottvqzplxa0uza4xg.png')}
         alt=""
         class="h-10 w-10"
         width="40"

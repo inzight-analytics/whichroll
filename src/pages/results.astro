@@ -1,6 +1,7 @@
 ---
 import BaseLayout from "../layouts/BaseLayout.astro";
 import { quizChartData } from "../data/quiz-results";
+import { withBase } from "../utils/base";
 
 const maoriRollReasons = [
   {
@@ -105,7 +106,7 @@ const generalRollReasons = [
       </div>
       <figure class="about-intro__icon" aria-hidden="true">
         <img
-          src="/images/results-intro-icon.svg"
+          src={withBase('/images/results-intro-icon.svg')}
           alt=""
           width="300"
           height="300"

@@ -1,6 +1,7 @@
 ---
 import BaseLayout from "../layouts/BaseLayout.astro";
 import FAQ from "../components/FAQ.astro";
+import { withBase } from "../utils/base";
 
 const faqItems = [
   {
@@ -26,7 +27,7 @@ const faqItems = [
   {
     question: "What are the answers being used for?",
     answer:
-      '<p>The survey results are published on our <a href="/results/">Survey Results</a> page and in academic publications. See also our <a href="/publications/">Publications</a> page.</p>',
+      `<p>The survey results are published on our <a href="${withBase('/results/')}">Survey Results</a> page and in academic publications. See also our <a href="${withBase('/publications/')}">Publications</a> page.</p>`,
   },
   {
     question: "Could people take the survey in te reo Māori?",
@@ -36,7 +37,7 @@ const faqItems = [
   {
     question: "Where can I see the results?",
     answer:
-      '<p>Visit our <a href="/results/">Survey Results</a> page for the top reasons Māori chose each roll and knowledge quiz results.</p>',
+      `<p>Visit our <a href="${withBase('/results/')}">Survey Results</a> page for the top reasons Māori chose each roll and knowledge quiz results.</p>`,
   },
   {
     question: "Who funded this survey?",
@@ -60,7 +61,7 @@ const faqItems = [
     <div class="container about-hero__grid">
       <figure class="about-hero__figure">
         <img
-          src="/images/Characters-02.png"
+          src={withBase('/images/Characters-02.png')}
           alt=""
           width="513"
           height="1024"
@@ -98,7 +99,7 @@ const faqItems = [
       </div>
       <div class="about-intro__icon" aria-hidden="true">
         <img
-          src="/images/about-icon-people.svg"
+          src={withBase('/images/about-icon-people.svg')}
           alt=""
           width="300"
           height="300"
@@ -129,7 +130,7 @@ const faqItems = [
   <section class="about-team section">
     <div class="container--site about-team__grid">
       <div class="about-team__icon" aria-hidden="true">
-        <img src="/images/about-icon-raranga.svg" alt="" />
+        <img src={withBase('/images/about-icon-raranga.svg')} alt="" />
       </div>
       <div class="about-team__copy @container">
         <h2 class="about-team__title">Who ran this survey?</h2>

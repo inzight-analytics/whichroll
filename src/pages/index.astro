@@ -1,5 +1,6 @@
 ---
 import BaseLayout from "../layouts/BaseLayout.astro";
+import { withBase } from "../utils/base";
 ---
 
 <BaseLayout title="Home" homeLayout>
@@ -21,7 +22,7 @@ import BaseLayout from "../layouts/BaseLayout.astro";
       aria-hidden="true"
     >
       <img
-        src="/images/Characters-04.png"
+        src={withBase('/images/Characters-04.png')}
         alt=""
         class="hero-character hero-character--left"
         width="400"
@@ -29,7 +30,7 @@ import BaseLayout from "../layouts/BaseLayout.astro";
         loading="eager"
       />
       <img
-        src="/images/Characters-03.png"
+        src={withBase('/images/Characters-03.png')}
         alt=""
         class="hero-character hero-character--right"
         width="400"
@@ -45,7 +46,7 @@ import BaseLayout from "../layouts/BaseLayout.astro";
       <!-- Mobile: figures replace logo (reversed vs desktop flanking) -->
       <div class="hero-characters-mobile mb-6 md:hidden" aria-hidden="true">
         <img
-          src="/images/Characters-03.png"
+          src={withBase('/images/Characters-03.png')}
           alt=""
           class="hero-character-mobile"
           width="400"
@@ -53,7 +54,7 @@ import BaseLayout from "../layouts/BaseLayout.astro";
           loading="eager"
         />
         <img
-          src="/images/Characters-04.png"
+          src={withBase('/images/Characters-04.png')}
           alt=""
           class="hero-character-mobile"
           width="400"
@@ -63,7 +64,7 @@ import BaseLayout from "../layouts/BaseLayout.astro";
       </div>
 
       <img
-        src="/images/Which-Roll-02.png"
+        src={withBase('/images/Which-Roll-02.png')}
         alt="Which Roll?"
         class="mb-8 hidden w-[min(85%,520px)] md:block"
         width="520"
@@ -80,7 +81,7 @@ import BaseLayout from "../layouts/BaseLayout.astro";
       </h1>
 
       <a
-        href="/about-us/"
+        href={withBase('/about-us/')}
         class="inline-block rounded-full border border-roll-orange bg-roll-orange px-12 py-4 text-base font-semibold text-white no-underline [-webkit-tap-highlight-color:transparent] hover:border-white hover:bg-white hover:text-roll-text active:border-roll-orange active:bg-roll-orange active:text-white"
       >
         About us

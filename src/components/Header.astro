@@ -1,5 +1,6 @@
 ---
-import { navItems } from '../config/nav';
+import { homeHref, navItems } from '../config/nav';
+import { withBase } from '../utils/base';
 
 interface Props {
   variant?: 'overlay' | 'solid';
@@ -17,9 +18,9 @@ const isOverlay = variant === 'overlay';
   ]}
 >
   <div class="mx-auto flex max-w-[1410px] items-center justify-between gap-4 px-4 py-4 sm:px-6 lg:px-8">
-    <a href="/" class="shrink-0" aria-label="Which Roll? home">
+    <a href={homeHref} class="shrink-0" aria-label="Which Roll? home">
       <img
-        src="/images/Which-Roll-02.png"
+        src={withBase('/images/Which-Roll-02.png')}
         alt="Which Roll? – Ko Tēhea Rārangi Pōti?"
         class="h-[110px] w-auto"
         width="280"
